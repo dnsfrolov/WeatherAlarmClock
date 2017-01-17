@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorDarkerGray">#d4d4d4</color>
+
+    <color name="colorTeal_50">#E0F2F1</color>
+    <color name="colorTeal_100">#B2DFDB</color>
+    <color name="colorTeal_200">#80CBC4</color>
+    <color name="colorTeal_300">#4DB6AC</color>
+    <color name="colorTeal_400">#26A69A</color>
+    <color name="colorTeal_500">#009688</color>
+    <color name="colorTeal_600">#00897B</color>
+    <color name="colorTeal_700">#00796B</color>
+    <color name="colorTeal_800">#00695C</color>
+    <color name="colorTeal_900">#004D40</color>
+</resources>
