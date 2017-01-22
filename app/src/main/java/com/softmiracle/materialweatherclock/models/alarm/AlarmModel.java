@@ -1,6 +1,6 @@
-package com.softmiracle.materialweatherclock.alarm;
+package com.softmiracle.materialweatherclock.models.alarm;
 
-import android.net.Uri;
+import com.softmiracle.materialweatherclock.alarm.AlarmClockBuilder;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Created by Denys on 17.01.2017.
  */
 
-public class AlarmModel implements Serializable{
+public class AlarmModel implements Serializable {
 
     public int id;
     public boolean enable;
@@ -22,7 +22,7 @@ public class AlarmModel implements Serializable{
     public int remind;
 
 
-    protected AlarmModel(int id, AlarmClockBuilder builder) {
+    public AlarmModel(int id, AlarmClockBuilder builder) {
         this.id = id;
         this.enable = builder.enable;
         this.hour = builder.hour;

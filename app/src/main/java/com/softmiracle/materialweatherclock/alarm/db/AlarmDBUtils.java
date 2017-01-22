@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.softmiracle.materialweatherclock.alarm.AlarmClockBuilder;
-import com.softmiracle.materialweatherclock.alarm.AlarmModel;
+import com.softmiracle.materialweatherclock.models.alarm.AlarmModel;
 
 import java.util.ArrayList;
 import java.util.List;

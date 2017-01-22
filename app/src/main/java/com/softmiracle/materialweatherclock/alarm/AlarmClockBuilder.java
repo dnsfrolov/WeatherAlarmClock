@@ -1,6 +1,6 @@
 package com.softmiracle.materialweatherclock.alarm;
 
-import android.provider.AlarmClock;
+import com.softmiracle.materialweatherclock.models.alarm.AlarmModel;
 
 /**
  * Created by Denys on 17.01.2017.
