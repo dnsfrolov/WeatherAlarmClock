@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_ring_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="?android:attr/selectableItemBackground">
+
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorDarkerGray" />
+
+    <TextView
+        android:layout_marginTop="25dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/remind_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="@string/remindThreeMinutes"
+        android:textColor="@color/colorTeal_300"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:id="@+id/remind_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remind_three"
+        android:fontFamily="monospace"
+        android:text="@string/remindFiveMinutes"
+        android:textColor="@color/colorTeal_300"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/remind_ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remind_five"
+        android:fontFamily="monospace"
+        android:text="@string/remindTenMinutes"
+        android:textColor="@color/colorTeal_300"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/remind_twenty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remind_ten"
+        android:fontFamily="monospace"
+        android:text="@string/remindTwentyMinutes"
+        android:textColor="@color/colorTeal_300"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/remind_half_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remind_twenty"
+        android:fontFamily="monospace"
+        android:text="@string/remindHalfHour"
+        android:textColor="@color/colorTeal_300"
+        android:textSize="20sp" />
+
+</RelativeLayout>

@@ -11,7 +11,7 @@
         android:id="@+id/ring_list_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:fontFamily="monospace"/>
 
 </RelativeLayout>

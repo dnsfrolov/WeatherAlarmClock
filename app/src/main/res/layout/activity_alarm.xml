@@ -25,9 +25,9 @@
             android:layout_marginStart="75dp"
             android:layout_marginTop="15dp"
             android:fontFamily="monospace"
-            android:text="00"
+            android:text="@string/time"
             android:textColor="@color/colorTeal_800"
-            android:textSize="80dp" />
+            android:textSize="80sp" />
 
         <TextView
             android:id="@+id/add_picker_divide"
@@ -37,9 +37,9 @@
             android:layout_marginStart="160dp"
             android:layout_marginTop="15dp"
             android:fontFamily="monospace"
-            android:text=":"
+            android:text="@string/timePoint"
             android:textColor="@color/colorTeal_800"
-            android:textSize="70dp" />
+            android:textSize="70sp" />
 
         <TextView
             android:id="@+id/alarm_time_min"
@@ -48,9 +48,9 @@
             android:layout_marginStart="195dp"
             android:layout_marginTop="15dp"
             android:fontFamily="monospace"
-            android:text="00"
+            android:text="@string/time"
             android:textColor="@color/colorTeal_800"
-            android:textSize="80dp" />
+            android:textSize="80sp" />
 
         <!--<View
             android:layout_width="match_parent"
@@ -88,9 +88,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="35dp"
                     android:fontFamily="monospace"
-                    android:text="Include weather"
+                    android:text="@string/alarmSwitchWeather"
                     android:textColor="@color/colorTeal_900"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/switch_weather"
@@ -120,9 +120,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="35dp"
                     android:fontFamily="monospace"
-                    android:text="Vibration"
+                    android:text="@string/alarmSwitchVibration"
                     android:textColor="@color/colorTeal_900"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/switch_vibration"
@@ -154,9 +154,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="22dp"
                     android:fontFamily="monospace"
-                    android:text="Repeat"
+                    android:text="@string/alarmRepeat"
                     android:textColor="@color/colorTeal_900"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -172,9 +172,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="70dp"
                     android:fontFamily="monospace"
-                    android:text="Only once"
+                    android:text="@string/alarmRepeatChoice"
                     android:textColor="@color/colorTeal_400"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <net.steamcrafted.materialiconlib.MaterialIconView
                     android:layout_width="30dp"
@@ -208,9 +208,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="22dp"
                     android:fontFamily="monospace"
-                    android:text="Ringtones"
+                    android:text="@string/alarmRingtone"
                     android:textColor="@color/colorTeal_900"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -226,9 +226,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="70dp"
                     android:fontFamily="monospace"
-                    android:text="Raindrop"
+                    android:text="@string/alarmRingChoice"
                     android:textColor="@color/colorTeal_400"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <net.steamcrafted.materialiconlib.MaterialIconView
                     android:layout_width="30dp"
@@ -263,9 +263,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="22dp"
                     android:fontFamily="monospace"
-                    android:text="Later remind"
+                    android:text="@string/alarmRemind"
                     android:textColor="@color/colorTeal_900"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -281,9 +281,9 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="70dp"
                     android:fontFamily="monospace"
-                    android:text="Three minutes"
+                    android:text="@string/alarmRemindChoice"
                     android:textColor="@color/colorTeal_400"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <net.steamcrafted.materialiconlib.MaterialIconView
                     android:layout_width="30dp"

@@ -4,9 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="8dp" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/alarmlist_cView"
@@ -14,15 +11,16 @@
         android:layout_height="88dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:background="@color/cardview_light_background"
         android:clickable="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="16dp">
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp">
 
             <LinearLayout
                 android:id="@+id/alarmlist_lLayout"
@@ -41,7 +39,7 @@
                         android:id="@+id/alarmlist_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="--:--"
+                        android:text="@string/timeNull"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="28sp" />
                 </LinearLayout>
@@ -55,7 +53,7 @@
                         android:id="@+id/alarmlist_sun"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sun"
+                        android:text="@string/sunday"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="12dp" />
 
@@ -63,8 +61,8 @@
                         android:id="@+id/alarmlist_mon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="Mon"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/monday"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="12dp" />
 
@@ -72,8 +70,8 @@
                         android:id="@+id/alarmlist_tue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="Tue"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/tuesday"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="12dp" />
 
@@ -81,8 +79,8 @@
                         android:id="@+id/alarmlist_wed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="Wed"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/wednesday"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="12dp" />
 
@@ -90,8 +88,8 @@
                         android:id="@+id/alarmlist_thu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="Thu"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/thursday"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="12dp" />
 
@@ -99,8 +97,8 @@
                         android:id="@+id/alarmlist_fri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="Fri"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/friday"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="12dp" />
 
@@ -108,8 +106,8 @@
                         android:id="@+id/alarmlist_sat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="Sat"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/saturday"
                         android:textColor="@color/colorTeal_800"
                         android:textSize="12dp" />
                 </LinearLayout>

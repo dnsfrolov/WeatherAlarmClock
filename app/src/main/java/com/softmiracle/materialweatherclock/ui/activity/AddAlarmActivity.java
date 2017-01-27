@@ -219,7 +219,7 @@ public class AddAlarmActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(RingActivity.newIntent(this));
                 break;
             case R.id.alarm_cv_remind:
-
+                startActivity(new Intent(this, RemindActivity.class));
                 break;
             default:
                 break;

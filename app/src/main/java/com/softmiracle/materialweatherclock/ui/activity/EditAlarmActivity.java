@@ -63,7 +63,7 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
     public static TextView tvHours;
     public static TextView tvMin;
 
-    private static final String EDIT_TITLE = "EDIT alarm";
+    private static final String EDIT_TITLE = "Edit alarm";
     public static final String ALARM_CLOCK = "alarm_clock";
     private static final String THREE_MINUTES = "Three minutes";
     private static final String FIVE_MINUTES = "Five minutes";
@@ -195,6 +195,7 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
                 startActivity(RingActivity.newIntent(this));
                 break;
             case R.id.alarm_cv_remind:
+                startActivity(new Intent(this, RemindActivity.class));
                 break;
             default:
                 break;
