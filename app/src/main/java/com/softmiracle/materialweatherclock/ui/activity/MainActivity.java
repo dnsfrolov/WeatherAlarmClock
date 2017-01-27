@@ -1,4 +1,4 @@
-package com.softmiracle.materialweatherclock;
+package com.softmiracle.materialweatherclock.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,22 +15,27 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.softmiracle.materialweatherclock.R;
 import com.softmiracle.materialweatherclock.alarm.AlarmClockBuilder;
 import com.softmiracle.materialweatherclock.alarm.AlarmManagerHelper;
 import com.softmiracle.materialweatherclock.alarm.db.AlarmDBUtils;
 import com.softmiracle.materialweatherclock.models.alarm.AlarmModel;
-import com.softmiracle.materialweatherclock.ui.AddAlarmActivity;
-import com.softmiracle.materialweatherclock.ui.EditAlarmActivity;
+import com.softmiracle.materialweatherclock.service.AlarmClockService;
 
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,24 +43,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     @Bind(R.id.floating_action_btn)
     FloatingActionButton floatingActionButton;
-    @Bind(R.id.alarmlist_time)
-    TextView tvTime;
-    @Bind(R.id.alarmlist_sun)
-    TextView tvSun;
-    @Bind(R.id.alarmlist_mon)
-    TextView tvMon;
-    @Bind(R.id.alarmlist_tue)
-    TextView tvTue;
-    @Bind(R.id.alarmlist_wed)
-    TextView tvWed;
-    @Bind(R.id.alarmlist_thu)
-    TextView tvThu;
-    @Bind(R.id.alarmlist_fri)
-    TextView tvFri;
-    @Bind(R.id.alarmlist_sat)
-    TextView tvSat;
-    @Bind(R.id.alarmlist_switch)
-    SwitchCompat switchCompat;
+
+    @Bind(R.id.toolbar) Toolbar toolbar;
 
     private List<AlarmModel> alarmList;
     private AlarmAdapter alarmAdapter;
@@ -68,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
 
         final Handler handler = new Handler() {
             @Override
@@ -93,25 +84,46 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 alarmList = AlarmDBUtils.queryAlarmClock(MainActivity.this);
-                alarmAdapter.notifyDataSetChanged();
+
+                try{
+                    alarmAdapter.notifyDataSetChanged();
+                } catch (NullPointerException ignored) {
+                    Log.e("NullPE", "error");
+                }
+
                 Message message = handler.obtainMessage();
                 message.what = 0;
                 handler.sendMessage(message);
             }
         }).start();
 
-        /*floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(AddAlarmActivity.newIntent(MainActivity.this));
             }
-        });*/
+        });
 
         alarmAdapter = new AlarmAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-
         startService(new Intent(this, AlarmClockService.class));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -134,14 +146,23 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
             final AlarmViewHolder alarmViewHolder = (AlarmViewHolder) holder;
             alarmViewHolder.initData(holder.getAdapterPosition());
+
+            alarmViewHolder.alarmCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(EditAlarmActivity.newIntent(MainActivity.this, alarmList.get(holder.getAdapterPosition()))));
+                }
+            });
+
             alarmViewHolder.alarmCardView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    startActivity(new Intent(EditAlarmActivity.newIntent(MainActivity.this, alarmList.get(holder.getAdapterPosition()).id)));
+                    //TODO delete
                     return false;
                 }
             });
         }
+
 
         @Override
         public int getItemCount() {
@@ -153,14 +174,28 @@ public class MainActivity extends AppCompatActivity {
     private class AlarmViewHolder extends RecyclerView.ViewHolder {
 
         CardView alarmCardView;
+        TextView tvTime;
+        TextView tvSun, tvMon, tvTue, tvWed, tvThu, tvFri, tvSat;
+        SwitchCompat switchCompat;
 
         AlarmViewHolder(View realContentView) {
             super(realContentView);
-            alarmCardView = (CardView) findViewById(R.id.alarmlist_cView);
+            alarmCardView = (CardView) realContentView.findViewById(R.id.alarmlist_cView);
+            tvTime = (TextView) realContentView.findViewById(R.id.alarmlist_time);
+            tvSun = (TextView) realContentView.findViewById(R.id.alarmlist_sun);
+            tvMon = (TextView) realContentView.findViewById(R.id.alarmlist_mon);
+            tvTue = (TextView) realContentView.findViewById(R.id.alarmlist_tue);
+            tvWed = (TextView) realContentView.findViewById(R.id.alarmlist_wed);
+            tvThu = (TextView) realContentView.findViewById(R.id.alarmlist_thu);
+            tvFri = (TextView) realContentView.findViewById(R.id.alarmlist_fri);
+            tvSat = (TextView) realContentView.findViewById(R.id.alarmlist_sat);
+            switchCompat = (SwitchCompat) realContentView.findViewById(R.id.alarmlist_switch);
         }
 
         void initData(final int adapterPosition) {
             final AlarmModel alarm = alarmList.get(adapterPosition);
+            switchCompat.setOnCheckedChangeListener(null);
+            switchCompat.setChecked(alarm.enable);
 
             setViewVisible(tvSun, alarm.sunday);
             setViewVisible(tvMon, alarm.monday);
@@ -180,8 +215,6 @@ public class MainActivity extends AppCompatActivity {
                 disableTextColor();
             }
 
-            switchCompat.setOnCheckedChangeListener(null);
-            switchCompat.setChecked(alarm.enable);
             switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -200,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        private void disableTextColor() {
+        private void enableTextColor() {
             tvTime.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
             tvSun.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
             tvMon.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
@@ -211,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
             tvSat.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
         }
 
-        private void enableTextColor() {
+        private void disableTextColor() {
             tvTime.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_100));
             tvSun.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_100));
             tvMon.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_100));
@@ -229,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initDB() {
         AlarmClockBuilder clockBuilder = new AlarmClockBuilder();
-        AlarmModel alarm = clockBuilder.enable(true)
+        AlarmModel alarmM = clockBuilder.enable(true)
                 .hour(7)
                 .minute(0)
                 .repeat(WEEK_DAY)
@@ -247,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
                 .remind(3)
                 .builder(0);
 
-        AlarmDBUtils.insertAlarmClock(this, alarm);
+        AlarmDBUtils.insertAlarmClock(this, alarmM);
     }
 
     private String firstRing(Context context) {

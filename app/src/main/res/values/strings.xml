@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Material Weather Clock</string>
+    <string name="action_settings">Settings</string>
+    <string name="ringActivityTitle">Choose Ring</string>
 </resources>

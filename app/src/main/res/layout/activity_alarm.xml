@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/include_toolbar"
+        layout="@layout/toolbar" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/alarm_cv_time"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_below="@id/include_toolbar"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/cardview_light_background">
+
+        <TextView
+            android:id="@+id/alarm_time_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="monospace"
+            android:text="00"
+            android:textColor="@color/colorTeal_800"
+            android:textSize="80dp" />
+
+        <TextView
+            android:id="@+id/add_picker_divide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="monospace"
+            android:text=":"
+            android:textColor="@color/colorTeal_800"
+            android:textSize="70dp" />
+
+        <TextView
+            android:id="@+id/alarm_time_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="195dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="monospace"
+            android:text="00"
+            android:textColor="@color/colorTeal_800"
+            android:textSize="80dp" />
+
+        <!--<View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="126dp"
+            android:background="@color/colorTeal_50" />-->
+
+    </android.support.v7.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/alarm_cv_time"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/alarm_cv_weather"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/cardview_light_background">
+
+                <TextView
+                    android:id="@+id/weather_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="monospace"
+                    android:text="Include weather"
+                    android:textColor="@color/colorTeal_900"
+                    android:textSize="20dp" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="280dp"
+                    android:layout_marginTop="37dp" />
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/alarm_cv_vibration"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/alarm_cv_weather"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/cardview_light_background">
+
+                <TextView
+                    android:id="@+id/vibration_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="monospace"
+                    android:text="Vibration"
+                    android:textColor="@color/colorTeal_900"
+                    android:textSize="20dp" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_vibration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="280dp"
+                    android:layout_marginTop="37dp" />
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/alarm_cv_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/alarm_cv_vibration"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/cardview_light_background">
+
+                <TextView
+                    android:id="@+id/repeat_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="monospace"
+                    android:text="Repeat"
+                    android:textColor="@color/colorTeal_900"
+                    android:textSize="20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="65dp"
+                    android:background="@color/colorDarkerGray" />
+
+                <TextView
+                    android:id="@+id/repeat_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="monospace"
+                    android:text="Only once"
+                    android:textColor="@color/colorTeal_400"
+                    android:textSize="14dp" />
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="285dp"
+                    android:layout_marginTop="25dp"
+                    android:adjustViewBounds="true"
+                    app:materialIcon="chevron_down"
+                    app:materialIconColor="@color/colorTeal_800" />
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/alarm_cv_ring"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/alarm_cv_repeat"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/cardview_light_background">
+
+                <TextView
+                    android:id="@+id/ringtones_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="monospace"
+                    android:text="Ringtones"
+                    android:textColor="@color/colorTeal_900"
+                    android:textSize="20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="65dp"
+                    android:background="@color/colorDarkerGray" />
+
+                <TextView
+                    android:id="@+id/ringtones_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="monospace"
+                    android:text="Raindrop"
+                    android:textColor="@color/colorTeal_400"
+                    android:textSize="14dp" />
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="285dp"
+                    android:layout_marginTop="25dp"
+                    android:adjustViewBounds="true"
+                    app:materialIcon="chevron_down"
+                    app:materialIconColor="@color/colorTeal_800" />
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/alarm_cv_remind"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/alarm_cv_ring"
+                android:layout_marginBottom="64dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/cardview_light_background">
+
+                <TextView
+                    android:id="@+id/remind_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="monospace"
+                    android:text="Later remind"
+                    android:textColor="@color/colorTeal_900"
+                    android:textSize="20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="65dp"
+                    android:background="@color/colorDarkerGray" />
+
+                <TextView
+                    android:id="@+id/remind_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="monospace"
+                    android:text="Three minutes"
+                    android:textColor="@color/colorTeal_400"
+                    android:textSize="14dp" />
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="285dp"
+                    android:layout_marginTop="25dp"
+                    android:adjustViewBounds="true"
+                    app:materialIcon="chevron_down"
+                    app:materialIconColor="@color/colorTeal_800" />
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_action_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/alarm_check" />
+
+</RelativeLayout>
