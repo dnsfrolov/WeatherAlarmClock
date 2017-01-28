@@ -190,6 +190,7 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.alarm_cv_repeat:
+                startActivity(new Intent(RepeatActivity.newIntent(this)));
                 break;
             case R.id.alarm_cv_ring:
                 startActivity(RingActivity.newIntent(this));

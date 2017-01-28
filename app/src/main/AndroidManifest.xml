@@ -50,6 +50,18 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name=".ui.activity.RepeatActivity"
+            android:label="@string/repeatActivityTitle"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name=".ui.activity.RepeatChoiceActivity"
+            android:label="@string/repeatChoiceActivityTitle"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
 
         <service
             android:name=".service.AlarmClockService"

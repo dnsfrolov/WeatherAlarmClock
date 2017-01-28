@@ -32,5 +32,14 @@
     <string name="monday">Mon</string>
     <string name="sunday">Sun</string>
     <string name="timeNull">--:--</string>
+    <string name="repeatActivityTitle">Repeat time</string>
+    <string name="repeatOnce">Only once</string>
+    <string name="repeatWeekDay">Week day</string>
+    <string name="repeatEveryDay">Every day</string>
+    <string name="repeatWeekend">Weekend</string>
+    <string name="repeatChoice">Your choice</string>
+    <string name="repeatOK">Ok</string>
+    <string name="repeatCancel">Cancel</string>
+    <string name="repeatChoiceActivityTitle">Repeat days</string>
 
 </resources>
