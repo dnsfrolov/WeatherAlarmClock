@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.floating_action_btn)
     FloatingActionButton floatingActionButton;
 
-    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     private List<AlarmModel> alarmList;
     private AlarmAdapter alarmAdapter;
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                 alarmList = AlarmDBUtils.queryAlarmClock(MainActivity.this);
 
-                try{
+                try {
                     alarmAdapter.notifyDataSetChanged();
                 } catch (NullPointerException ignored) {
                     Log.e("NullPE", "error");
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
             alarmViewHolder.alarmCardView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    //TODO delete
+                    startActivity(new Intent(DeleteActivity.newIntent(MainActivity.this, alarmList.get(holder.getAdapterPosition()).id)));
                     return false;
                 }
             });

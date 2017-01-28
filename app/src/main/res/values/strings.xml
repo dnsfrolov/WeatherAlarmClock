@@ -5,6 +5,20 @@
     <string name="action_settings">Settings</string>
     <string name="ringActivityTitle">Ring selection</string>
     <string name="remindActivityTitle">Choose type of remind</string>
+    <string name="repeatChoiceActivityTitle">Repeat days</string>
+    <string name="deleteActivityTitle">Confirm to delete?</string>
+
+    <!--alarm utils-->
+    <string name="saturday">Sat</string>
+    <string name="friday">Fri</string>
+    <string name="thursday">Thu</string>
+    <string name="wednesday">Wed</string>
+    <string name="tuesday">Tue</string>
+    <string name="monday">Mon</string>
+    <string name="sunday">Sun</string>
+    <string name="timeNull">--:--</string>
+    <string name="OK">OK</string>
+    <string name="Cancel">CANCEL</string>
 
     <!--alarm activity-->
     <string name="time">00</string>
@@ -24,22 +38,13 @@
     <string name="remindTenMinutes">Ten minutes</string>
     <string name="remindTwentyMinutes">Twenty minutes</string>
     <string name="remindHalfHour">Half an hour</string>
-    <string name="saturday">Sat</string>
-    <string name="friday">Fri</string>
-    <string name="thursday">Thu</string>
-    <string name="wednesday">Wed</string>
-    <string name="tuesday">Tue</string>
-    <string name="monday">Mon</string>
-    <string name="sunday">Sun</string>
-    <string name="timeNull">--:--</string>
+
+    <!--repeat activity-->
     <string name="repeatActivityTitle">Repeat time</string>
     <string name="repeatOnce">Only once</string>
     <string name="repeatWeekDay">Week day</string>
     <string name="repeatEveryDay">Every day</string>
     <string name="repeatWeekend">Weekend</string>
     <string name="repeatChoice">Your choice</string>
-    <string name="repeatOK">Ok</string>
-    <string name="repeatCancel">Cancel</string>
-    <string name="repeatChoiceActivityTitle">Repeat days</string>
 
 </resources>

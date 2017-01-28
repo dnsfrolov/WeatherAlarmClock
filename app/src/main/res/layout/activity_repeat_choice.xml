@@ -109,9 +109,9 @@
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:text="@string/repeatCancel"
+            android:text="@string/Cancel"
             android:textColor="@color/colorTeal_900"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/repeat_ok"
@@ -121,9 +121,9 @@
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:text="@string/repeatOK"
+            android:text="@string/OK"
             android:textColor="@color/colorTeal_900"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 
