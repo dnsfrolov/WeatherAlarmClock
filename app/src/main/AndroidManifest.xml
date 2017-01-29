@@ -32,7 +32,8 @@
         <activity
             android:name=".ui.activity.BootAlarmActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".ui.activity.EditAlarmActivity"
             android:launchMode="singleTask"
@@ -69,11 +70,29 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
 
+        <receiver
+            android:name=".ui.receiver.AlarmClockReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <!--            <intent-filter>
+                            <action android:name="com.ivy.alarmclock.BOOT_ALARMCLOCK" />
+                            <category android:name="android.intent.category.DEFAULT" />
+                        </intent-filter>-->
+        </receiver>
+
         <service
             android:name=".service.AlarmClockService"
             android:enabled="true"
-            android:exported="true"
-            android:permission="" />
+            android:exported="true" />
+
+        <receiver
+            android:name=".ui.receiver.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>

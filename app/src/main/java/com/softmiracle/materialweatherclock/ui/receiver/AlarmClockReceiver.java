@@ -26,6 +26,6 @@ public class AlarmClockReceiver extends BroadcastReceiver {
         bootIntent.addFlags(FLAG_ACTIVITY_NEW_TASK);
         bootIntent.putExtra(ALARM_CLOCK, intent.getSerializableExtra(ALARM_CLOCK));
         Log.d("TAG", "receiver");
-        context.startActivity(bootIntent);
+        context .startActivity(bootIntent);
     }
 }

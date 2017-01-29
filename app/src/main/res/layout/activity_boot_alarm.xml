@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/boot1"
+    android:orientation="vertical"
+    tools:context="com.softmiracle.materialweatherclock.ui.activity.BootAlarmActivity">
+
+    <TextClock
+        android:id="@+id/boot_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:fontFamily="monospace"
+        android:textSize="40dp" />
+
+    <RelativeLayout
+        android:id="@+id/boot_put_off"
+        android:layout_width="190dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/boot_time"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true">
+
+        <net.steamcrafted.materialiconlib.MaterialIconView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:materialIcon="sleep"
+            app:materialIconColor="@color/cardview_light_background" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/boot_alarm_off"
+        android:layout_width="190dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/boot_time"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true">
+
+        <net.steamcrafted.materialiconlib.MaterialIconView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="120dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:materialIcon="alarm_off"
+            app:materialIconColor="@color/cardview_light_background" />
+    </RelativeLayout>
+
+</RelativeLayout>
