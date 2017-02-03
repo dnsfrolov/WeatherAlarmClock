@@ -8,7 +8,6 @@ import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -24,28 +23,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.softmiracle.materialweatherclock.R;
 import com.softmiracle.materialweatherclock.alarm.AlarmClockBuilder;
 import com.softmiracle.materialweatherclock.alarm.AlarmManagerHelper;
 import com.softmiracle.materialweatherclock.alarm.db.AlarmDBUtils;
+import com.softmiracle.materialweatherclock.api.RetrofitApiProvider;
 import com.softmiracle.materialweatherclock.models.alarm.AlarmModel;
+import com.softmiracle.materialweatherclock.models.weather.Weather;
+import com.softmiracle.materialweatherclock.models.weather.WeatherResponseModel;
 import com.softmiracle.materialweatherclock.service.AlarmClockService;
+import com.softmiracle.materialweatherclock.weather.WeatherTempConverter;
+
+import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
+import net.steamcrafted.materialiconlib.MaterialIconView;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.add_alarmlist)
     RecyclerView recyclerView;
-    @Bind(R.id.floating_action_btn)
-    FloatingActionButton floatingActionButton;
-
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+    @Bind(R.id.image_weather_icon)
+    MaterialIconView weatherIcon;
+    @Bind(R.id.tv_location)
+    TextView tvLocation;
+    @Bind(R.id.tv_condition)
+    TextView tvCondition;
+    @Bind(R.id.tv_temp)
+    TextView tvTemp;
 
     private List<AlarmModel> alarmList;
     private AlarmAdapter alarmAdapter;
@@ -54,12 +70,15 @@ public class MainActivity extends AppCompatActivity {
     private static final String BOOT = "boot";
     private static final String FLAG = "flag";
 
+    private static final String CITY = "lviv";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        loadWeather(CITY);
 
         final Handler handler = new Handler() {
             @Override
@@ -98,16 +117,61 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(AddAlarmActivity.newIntent(MainActivity.this));
-            }
-        });
-
         alarmAdapter = new AlarmAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         startService(new Intent(this, AlarmClockService.class));
+    }
+
+    @OnClick(R.id.floating_action_btn)
+    public void OnFABClick() {
+        startActivity(AddAlarmActivity.newIntent(MainActivity.this));
+    }
+
+    private void loadWeather(String city) {
+        RetrofitApiProvider apiProvider = new RetrofitApiProvider();
+        apiProvider.getWeather(city, new Callback<WeatherResponseModel>() {
+            @Override
+            public void onResponse(Call<WeatherResponseModel> call, Response<WeatherResponseModel> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    populateWeather(response);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WeatherResponseModel> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void populateWeather(Response<WeatherResponseModel> response) {
+        Weather weather[] = response.body().getWeathers();
+        tvLocation.setText(response.body().getName());
+        tvCondition.setText(weather[0].getMain());
+        tvTemp.setText(WeatherTempConverter.convertToCelsius(response.body().getMain().getTemp()).intValue() + " °C");
+
+        if (weather[0].getIcon().equals("01d")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_SUNNY);
+        } else if (weather[0].getIcon().equals("01n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_NIGHT);
+        } else if (weather[0].getIcon().equals("02d") || weather[0].getIcon().equals("02n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_PARTLYCLOUDY);
+        }else if (weather[0].getIcon().equals("03d") || weather[0].getIcon().equals("03n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_CLOUDY);
+        }else if (weather[0].getIcon().equals("09d") || weather[0].getIcon().equals("09n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_RAINY);
+        }else if (weather[0].getIcon().equals("11d") || weather[0].getIcon().equals("11n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_LIGHTNING);
+        }else if (weather[0].getIcon().equals("13d") || weather[0].getIcon().equals("13n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_SNOWY);
+        }else if (weather[0].getIcon().equals("50d") || weather[0].getIcon().equals("50n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_FOG);
+        }
+    }
+
+    @OnClick(R.id.ib_refresh)
+    public void OnRefresh() {
+        loadWeather(CITY);
     }
 
     @Override

@@ -31,6 +31,7 @@ import java.util.Calendar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Denys on 22.01.2017.
@@ -41,8 +42,6 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
     Toolbar toolbar;
     @Bind(R.id.toolbar_title)
     TextView toolbarTitle;
-    @Bind(R.id.alarm_cv_time)
-    CardView tvTime;
     @Bind(R.id.alarm_cv_repeat)
     CardView cvRepeat;
     @Bind(R.id.repeat_content)
@@ -57,8 +56,6 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
     TextView tvRemind;
     @Bind(R.id.switch_vibration)
     SwitchCompat switchVibration;
-    @Bind(R.id.floating_action_btn2)
-    FloatingActionButton floatingActionButton;
 
     public static TextView tvHours;
     public static TextView tvMin;
@@ -135,31 +132,27 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
         tvHours.setText(h);
         tvMin.setText(m);
 
-        tvTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment dialogFragment = new TimePickerFragment();
-                dialogFragment.show(getSupportFragmentManager(), "timePicker");
-            }
-        });
-
         switchVibration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 alarmClockLab.setVibrate(isChecked);
             }
         });
+    }
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlarmDBUtils.updateAlarmClock(EditAlarmActivity.this, alarmClockLab);
-                if (alarmClockLab.enable) {
-                    AlarmManagerHelper.startAlarmClock(EditAlarmActivity.this, alarmClockLab);
-                }
-                finish();
-            }
-        });
+    @OnClick(R.id.alarm_cv_time)
+    public void OnTimeClick() {
+        DialogFragment dialogFragment = new TimePickerFragment();
+        dialogFragment.show(getSupportFragmentManager(), "timePicker");
+    }
+
+    @OnClick(R.id.floating_action_btn2)
+    public void OnFAB2Click() {
+        AlarmDBUtils.updateAlarmClock(EditAlarmActivity.this, alarmClockLab);
+        if (alarmClockLab.enable) {
+            AlarmManagerHelper.startAlarmClock(EditAlarmActivity.this, alarmClockLab);
+        }
+        finish();
     }
 
     @Override
