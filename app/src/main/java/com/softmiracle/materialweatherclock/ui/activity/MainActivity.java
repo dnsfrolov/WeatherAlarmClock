@@ -8,6 +8,7 @@ import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -70,15 +71,15 @@ public class MainActivity extends AppCompatActivity {
     private static final String BOOT = "boot";
     private static final String FLAG = "flag";
 
-    private static final String CITY = "lviv";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        loadWeather(CITY);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String city = prefs.getString(getString(R.string.pref_city_key), getString(R.string.pref_city_default));
+        loadWeather(city);
 
         final Handler handler = new Handler() {
             @Override
@@ -133,13 +134,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherResponseModel> call, Response<WeatherResponseModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
+                    Toast.makeText(getApplicationContext(), "Weather updating...", Toast.LENGTH_SHORT).show();
                     populateWeather(response);
                 }
             }
 
             @Override
             public void onFailure(Call<WeatherResponseModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Failure network connection", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -148,7 +150,14 @@ public class MainActivity extends AppCompatActivity {
         Weather weather[] = response.body().getWeathers();
         tvLocation.setText(response.body().getName());
         tvCondition.setText(weather[0].getMain());
-        tvTemp.setText(WeatherTempConverter.convertToCelsius(response.body().getMain().getTemp()).intValue() + " °C");
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String tFormat = preferences.getString(getString(R.string.pref_temp_format_key), getString(R.string.pref_default_temp_format));
+        if (tFormat.equals(getString(R.string.pref_temp_celsius))) {
+            tvTemp.setText(WeatherTempConverter.convertToCelsius(response.body().getMain().getTemp()).intValue() + " °C");
+        } else {
+            tvTemp.setText(WeatherTempConverter.convertToFahrenheit(response.body().getMain().getTemp()).intValue() + " °F");
+        }
 
         if (weather[0].getIcon().equals("01d")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_SUNNY);
@@ -156,22 +165,24 @@ public class MainActivity extends AppCompatActivity {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_NIGHT);
         } else if (weather[0].getIcon().equals("02d") || weather[0].getIcon().equals("02n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_PARTLYCLOUDY);
-        }else if (weather[0].getIcon().equals("03d") || weather[0].getIcon().equals("03n")) {
+        } else if (weather[0].getIcon().equals("03d") || weather[0].getIcon().equals("03n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_CLOUDY);
-        }else if (weather[0].getIcon().equals("09d") || weather[0].getIcon().equals("09n")) {
+        } else if (weather[0].getIcon().equals("09d") || weather[0].getIcon().equals("09n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_RAINY);
-        }else if (weather[0].getIcon().equals("11d") || weather[0].getIcon().equals("11n")) {
+        } else if (weather[0].getIcon().equals("11d") || weather[0].getIcon().equals("11n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_LIGHTNING);
-        }else if (weather[0].getIcon().equals("13d") || weather[0].getIcon().equals("13n")) {
+        } else if (weather[0].getIcon().equals("13d") || weather[0].getIcon().equals("13n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_SNOWY);
-        }else if (weather[0].getIcon().equals("50d") || weather[0].getIcon().equals("50n")) {
+        } else if (weather[0].getIcon().equals("50d") || weather[0].getIcon().equals("50n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_FOG);
         }
     }
 
     @OnClick(R.id.ib_refresh)
     public void OnRefresh() {
-        loadWeather(CITY);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String city = prefs.getString(getString(R.string.pref_city_key), getString(R.string.pref_city_default));
+        loadWeather(city);
     }
 
     @Override
@@ -185,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.action_settings:
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

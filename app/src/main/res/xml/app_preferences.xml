@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/settings_weather">
+
+        <EditTextPreference
+            android:key="settings_edit_city_name"
+            android:singleLine="true"
+            android:summary="@string/settings_location_city_summary"
+            android:title="@string/settings_location_city_title"/>
+
+        <ListPreference
+            android:defaultValue="@string/pref_default_temp_format"
+            android:entries="@array/pref_temp_format"
+            android:entryValues="@array/pref_temp_format_value"
+            android:key="settings_list_temp_format"
+            android:title="@string/pref_temp_format_title"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
