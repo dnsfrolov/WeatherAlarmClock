@@ -76,9 +76,9 @@ public class RepeatChoiceActivity extends AppCompatActivity implements View.OnCl
 
     private int getColor(boolean b) {
         if (b) {
-            return ContextCompat.getColor(this, R.color.colorTeal_900);
+            return ContextCompat.getColor(this, R.color.colorRed_500);
         } else {
-            return ContextCompat.getColor(this, R.color.colorTeal_200);
+            return ContextCompat.getColor(this, R.color.colorWhite);
         }
     }
 

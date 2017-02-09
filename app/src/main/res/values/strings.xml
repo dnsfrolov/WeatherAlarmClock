@@ -62,6 +62,7 @@
     <string name="pref_temp_celsius">Celsius</string>
     <string name="pref_temp_fahrenheit">Fahrenheit</string>
     <string name="current_weather">Current Weather</string>
+    <string name="weather_update">Weather is updating...</string>
     <string-array name="pref_temp_format_value">
         <item>Fahrenheit</item>
         <item>Celsius</item>>

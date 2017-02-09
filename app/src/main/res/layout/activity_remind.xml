@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="@string/remindThreeMinutes"
-        android:textColor="@color/colorTeal_300"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_below="@id/remind_three"
         android:fontFamily="monospace"
         android:text="@string/remindFiveMinutes"
-        android:textColor="@color/colorTeal_300"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_below="@id/remind_five"
         android:fontFamily="monospace"
         android:text="@string/remindTenMinutes"
-        android:textColor="@color/colorTeal_300"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -61,7 +61,7 @@
         android:layout_below="@id/remind_ten"
         android:fontFamily="monospace"
         android:text="@string/remindTwentyMinutes"
-        android:textColor="@color/colorTeal_300"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -74,7 +74,7 @@
         android:layout_below="@id/remind_twenty"
         android:fontFamily="monospace"
         android:text="@string/remindHalfHour"
-        android:textColor="@color/colorTeal_300"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
 </RelativeLayout>

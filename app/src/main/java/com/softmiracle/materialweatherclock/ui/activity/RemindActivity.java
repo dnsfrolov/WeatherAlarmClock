@@ -48,19 +48,19 @@ public class RemindActivity extends AppCompatActivity implements View.OnClickLis
         int remind = alarmClockLab.remind;
         switch (remind) {
             case 3:
-                tv_remind_three.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+                tv_remind_three.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
                 break;
             case 5:
-                tv_remind_five.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+                tv_remind_five.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
                 break;
             case 10:
-                tv_remind_ten.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+                tv_remind_ten.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
                 break;
             case 20:
-                tv_remind_twenty.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+                tv_remind_twenty.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
                 break;
             case 30:
-                tv_remind_half_hour.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+                tv_remind_half_hour.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
                 break;
             default:
                 break;

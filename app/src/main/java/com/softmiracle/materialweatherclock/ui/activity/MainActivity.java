@@ -1,14 +1,17 @@
 package com.softmiracle.materialweatherclock.ui.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -23,8 +26,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.softmiracle.materialweatherclock.R;
 import com.softmiracle.materialweatherclock.alarm.AlarmClockBuilder;
@@ -51,6 +54,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Bind(R.id.activity_main)
+    RelativeLayout parentLayout;
     @Bind(R.id.add_alarmlist)
     RecyclerView recyclerView;
     @Bind(R.id.toolbar)
@@ -138,18 +143,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherResponseModel> call, Response<WeatherResponseModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
+                    Snackbar.make(parentLayout, R.string.weather_update, Snackbar.LENGTH_SHORT)
+                            .setActionTextColor(Color.RED)
+                            .show();
                     weatherIcon.setVisibility(View.VISIBLE);
-                    Toast.makeText(getApplicationContext(), "Weather updating...", Toast.LENGTH_SHORT).show();
                     populateWeather(response);
                 }
             }
 
             @Override
             public void onFailure(Call<WeatherResponseModel> call, Throwable t) {
+                Snackbar.make(parentLayout, R.string.failure_network, Snackbar.LENGTH_SHORT)
+                        .setActionTextColor(Color.RED)
+                        .show();
                 tvTitle.setText(R.string.failure_network);
                 weatherIcon.setVisibility(View.VISIBLE);
                 weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WIFI_OFF);
-                Toast.makeText(getApplicationContext(), R.string.failure_network, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -327,15 +336,15 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         private void enableTextColor() {
-            tvTime.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            tvSun.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            tvMon.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            tvTue.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            tvWed.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            tvThu.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            tvFri.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            tvSat.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
-            ivWeather.setColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
+            tvTime.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            tvSun.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            tvMon.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            tvTue.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            tvWed.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            tvThu.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            tvFri.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            tvSat.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorWhite));
+            ivWeather.setColor(ContextCompat.getColor(MainActivity.this, R.color.colorRed_500));
         }
 
         private void disableTextColor() {

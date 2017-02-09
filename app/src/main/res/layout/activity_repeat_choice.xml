@@ -20,7 +20,7 @@
         android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
         android:text="@string/sunday"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="15sp" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_toEndOf="@+id/repeat_sun"
         android:gravity="center_horizontal"
         android:text="@string/monday"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="15sp" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_toEndOf="@+id/repeat_mon"
         android:gravity="center_horizontal"
         android:text="@string/tuesday"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="15sp" />
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_toEndOf="@+id/repeat_tue"
         android:gravity="center_horizontal"
         android:text="@string/wednesday"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="15sp" />
 
     <TextView
@@ -68,7 +68,7 @@
         android:layout_toEndOf="@+id/repeat_wed"
         android:gravity="center_horizontal"
         android:text="@string/thursday"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="15sp" />
 
     <TextView
@@ -80,7 +80,7 @@
         android:layout_toEndOf="@+id/repeat_thu"
         android:gravity="center_horizontal"
         android:text="@string/friday"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="15sp" />
 
     <TextView
@@ -92,7 +92,7 @@
         android:layout_toEndOf="@+id/repeat_fri"
         android:gravity="center_horizontal"
         android:text="@string/saturday"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="15sp" />
 
     <LinearLayout
@@ -110,7 +110,7 @@
             android:clickable="true"
             android:gravity="center"
             android:text="@string/Cancel"
-            android:textColor="@color/colorTeal_900"
+            android:textColor="@color/colorRed_500"
             android:textSize="15sp" />
 
         <TextView
@@ -122,7 +122,7 @@
             android:clickable="true"
             android:gravity="center"
             android:text="@string/OK"
-            android:textColor="@color/colorTeal_900"
+            android:textColor="@color/colorRed_500"
             android:textSize="15sp" />
 
     </LinearLayout>

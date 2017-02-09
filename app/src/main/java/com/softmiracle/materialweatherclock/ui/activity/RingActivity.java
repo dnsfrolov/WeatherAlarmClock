@@ -106,7 +106,7 @@ public class RingActivity extends AppCompatActivity {
             String ring = ringList.get(position);
             ringText.setText(ring);
             ringText.setTextColor(ring.equals(alarmClockLab.ring) ? ContextCompat.getColor
-                    (RingActivity.this, R.color.colorTeal_900) : ContextCompat.getColor(RingActivity.this, R.color.colorTeal_200));
+                    (RingActivity.this, R.color.colorRed_500) : ContextCompat.getColor(RingActivity.this, R.color.colorWhite));
 
             ringView.setOnClickListener(new View.OnClickListener() {
                 @Override

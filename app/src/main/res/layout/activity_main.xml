@@ -5,6 +5,7 @@
                 android:id="@+id/activity_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/colorCustom"
                 tools:context="com.softmiracle.materialweatherclock.ui.activity.MainActivity">
 
     <include
@@ -16,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/include_toolbar"
-        android:layout_marginBottom="4dp">
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/cardview_dark_background">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +40,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="6dp"
                     android:text="@string/current_weather"
-                    android:textColor="@color/colorTeal_900"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15dp"
                     android:textStyle="normal"/>
 
@@ -51,7 +53,7 @@
                     android:background="?android:selectableItemBackground"
                     android:clickable="true"
                     app:materialIcon="refresh"
-                    app:materialIconColor="@color/colorTeal_900"/>
+                    app:materialIconColor="@color/colorRed_500"/>
             </RelativeLayout>
 
             <LinearLayout
@@ -67,7 +69,7 @@
                     android:layout_marginStart="16dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:materialIconColor="@color/colorTeal_700"/>
+                    app:materialIconColor="@color/colorRed_500"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -86,7 +88,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
-                            android:textColor="@color/colorTeal_900"
+                            android:textColor="@color/colorWhite"
                             android:textSize="16dp"/>
 
                         <TextView
@@ -95,7 +97,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:gravity="end"
-                            android:textColor="@color/colorTeal_900"
+                            android:textColor="@color/colorWhite"
                             android:textSize="16dp"/>
 
                         <TextView
@@ -103,7 +105,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="bottom"
-                            android:textColor="@color/colorTeal_900"
+                            android:textColor="@color/colorWhite"
                             android:textSize="24dp"/>
 
                     </LinearLayout>

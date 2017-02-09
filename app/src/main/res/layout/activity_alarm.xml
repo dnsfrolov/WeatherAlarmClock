@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorCustom"
+                android:orientation="vertical">
 
     <include
         android:id="@+id/include_toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/alarm_cv_time"
+        app:cardBackgroundColor="@color/cardview_dark_background"
         android:layout_width="match_parent"
         android:layout_height="128dp"
         android:layout_below="@id/include_toolbar"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
-        app:cardBackgroundColor="@color/cardview_light_background">
+        app:cardElevation="8dp">
 
         <TextView
             android:id="@+id/alarm_time_hours"
@@ -26,8 +28,8 @@
             android:layout_marginTop="15dp"
             android:fontFamily="monospace"
             android:text="@string/time"
-            android:textColor="@color/colorTeal_800"
-            android:textSize="80sp" />
+            android:textColor="@color/colorRed_500"
+            android:textSize="80sp"/>
 
         <TextView
             android:id="@+id/add_picker_divide"
@@ -38,8 +40,8 @@
             android:layout_marginTop="15dp"
             android:fontFamily="monospace"
             android:text="@string/timePoint"
-            android:textColor="@color/colorTeal_800"
-            android:textSize="70sp" />
+            android:textColor="@color/colorRed_500"
+            android:textSize="70sp"/>
 
         <TextView
             android:id="@+id/alarm_time_min"
@@ -49,8 +51,8 @@
             android:layout_marginTop="15dp"
             android:fontFamily="monospace"
             android:text="@string/time"
-            android:textColor="@color/colorTeal_800"
-            android:textSize="80sp" />
+            android:textColor="@color/colorRed_500"
+            android:textSize="80sp"/>
 
     </android.support.v7.widget.CardView>
 
@@ -72,7 +74,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                app:cardBackgroundColor="@color/cardview_light_background">
+                app:cardBackgroundColor="@color/cardview_dark_background"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/weather_title"
@@ -83,15 +86,15 @@
                     android:layout_marginTop="35dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmSwitchWeather"
-                    android:textColor="@color/colorTeal_900"
-                    android:textSize="20sp" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"/>
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/switch_weather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="280dp"
-                    android:layout_marginTop="37dp" />
+                    android:layout_marginTop="37dp"/>
 
             </android.support.v7.widget.CardView>
 
@@ -104,7 +107,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                app:cardBackgroundColor="@color/cardview_light_background">
+                app:cardBackgroundColor="@color/cardview_dark_background"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/vibration_title"
@@ -115,15 +119,15 @@
                     android:layout_marginTop="35dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmSwitchVibration"
-                    android:textColor="@color/colorTeal_900"
-                    android:textSize="20sp" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"/>
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/switch_vibration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="280dp"
-                    android:layout_marginTop="37dp" />
+                    android:layout_marginTop="37dp"/>
 
             </android.support.v7.widget.CardView>
 
@@ -138,7 +142,8 @@
                 android:layout_marginTop="8dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                app:cardBackgroundColor="@color/cardview_light_background">
+                app:cardBackgroundColor="@color/cardview_dark_background"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/repeat_title"
@@ -149,14 +154,14 @@
                     android:layout_marginTop="22dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmRepeat"
-                    android:textColor="@color/colorTeal_900"
-                    android:textSize="20sp" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="65dp"
-                    android:background="@color/colorDarkerGray" />
+                    android:background="@color/colorCustom"/>
 
                 <TextView
                     android:id="@+id/repeat_content"
@@ -167,8 +172,8 @@
                     android:layout_marginTop="70dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmRepeatChoice"
-                    android:textColor="@color/colorTeal_400"
-                    android:textSize="14sp" />
+                    android:textColor="@color/colorRed_500"
+                    android:textSize="14sp"/>
 
                 <net.steamcrafted.materialiconlib.MaterialIconView
                     android:layout_width="30dp"
@@ -177,7 +182,7 @@
                     android:layout_marginTop="25dp"
                     android:adjustViewBounds="true"
                     app:materialIcon="chevron_down"
-                    app:materialIconColor="@color/colorTeal_800" />
+                    app:materialIconColor="@color/colorRed_500"/>
 
             </android.support.v7.widget.CardView>
 
@@ -192,7 +197,8 @@
                 android:layout_marginTop="8dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                app:cardBackgroundColor="@color/cardview_light_background">
+                app:cardBackgroundColor="@color/cardview_dark_background"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/ringtones_title"
@@ -203,14 +209,14 @@
                     android:layout_marginTop="22dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmRingtone"
-                    android:textColor="@color/colorTeal_900"
-                    android:textSize="20sp" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="65dp"
-                    android:background="@color/colorDarkerGray" />
+                    android:background="@color/colorCustom"/>
 
                 <TextView
                     android:id="@+id/ringtones_content"
@@ -221,8 +227,8 @@
                     android:layout_marginTop="70dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmRingChoice"
-                    android:textColor="@color/colorTeal_400"
-                    android:textSize="14sp" />
+                    android:textColor="@color/colorRed_500"
+                    android:textSize="14sp"/>
 
                 <net.steamcrafted.materialiconlib.MaterialIconView
                     android:layout_width="30dp"
@@ -231,7 +237,7 @@
                     android:layout_marginTop="25dp"
                     android:adjustViewBounds="true"
                     app:materialIcon="chevron_down"
-                    app:materialIconColor="@color/colorTeal_800" />
+                    app:materialIconColor="@color/colorRed_500"/>
 
             </android.support.v7.widget.CardView>
 
@@ -247,7 +253,8 @@
                 android:layout_marginTop="8dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                app:cardBackgroundColor="@color/cardview_light_background">
+                app:cardBackgroundColor="@color/cardview_dark_background"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/remind_title"
@@ -258,14 +265,14 @@
                     android:layout_marginTop="22dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmRemind"
-                    android:textColor="@color/colorTeal_900"
-                    android:textSize="20sp" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="65dp"
-                    android:background="@color/colorDarkerGray" />
+                    android:background="@color/colorCustom"/>
 
                 <TextView
                     android:id="@+id/remind_content"
@@ -276,8 +283,8 @@
                     android:layout_marginTop="70dp"
                     android:fontFamily="monospace"
                     android:text="@string/alarmRemindChoice"
-                    android:textColor="@color/colorTeal_400"
-                    android:textSize="14sp" />
+                    android:textColor="@color/colorRed_500"
+                    android:textSize="14sp"/>
 
                 <net.steamcrafted.materialiconlib.MaterialIconView
                     android:layout_width="30dp"
@@ -286,7 +293,7 @@
                     android:layout_marginTop="25dp"
                     android:adjustViewBounds="true"
                     app:materialIcon="chevron_down"
-                    app:materialIconColor="@color/colorTeal_800" />
+                    app:materialIconColor="@color/colorRed_500"/>
 
             </android.support.v7.widget.CardView>
 
@@ -302,6 +309,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:src="@drawable/alarm_check" />
+        android:src="@drawable/alarm_check"/>
 
 </RelativeLayout>

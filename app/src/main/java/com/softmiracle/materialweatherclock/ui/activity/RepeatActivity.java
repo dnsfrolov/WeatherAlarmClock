@@ -55,15 +55,15 @@ public class RepeatActivity extends AppCompatActivity implements View.OnClickLis
 
         String repeat = alarmClockLab.repeat;
         if (repeat.equals(tvOnce.getText().toString())) {
-            tvOnce.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+            tvOnce.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
         } else if (repeat.equals(tvWeekDay.getText().toString())) {
-            tvWeekDay.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+            tvWeekDay.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
         } else if (repeat.equals(tvEveryDay.getText().toString())) {
-            tvEveryDay.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+            tvEveryDay.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
         } else if (repeat.equals(tvWeekend.getText().toString())) {
-            tvWeekend.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+            tvWeekend.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
         } else if (repeat.equals(tvChoice.getText().toString())) {
-            tvChoice.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
+            tvChoice.setTextColor(ContextCompat.getColor(this, R.color.colorRed_500));
         }
     }
 
@@ -71,7 +71,6 @@ public class RepeatActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.repeat_once:
-                //tvOnce.setTextColor(ContextCompat.getColor(this, R.color.colorTeal_800));
                 alarmClockLab.setRepeat(tvOnce.getText().toString());
                 alarmClockLab.setSunday(false);
                 alarmClockLab.setMonday(false);

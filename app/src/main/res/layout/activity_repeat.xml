@@ -22,7 +22,7 @@
         android:clickable="true"
         android:fontFamily="monospace"
         android:text="@string/repeatOnce"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:clickable="true"
         android:fontFamily="monospace"
         android:text="@string/repeatWeekDay"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:clickable="true"
         android:fontFamily="monospace"
         android:text="@string/repeatEveryDay"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -61,7 +61,7 @@
         android:clickable="true"
         android:fontFamily="monospace"
         android:text="@string/repeatWeekend"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <TextView
@@ -74,7 +74,7 @@
         android:clickable="true"
         android:fontFamily="monospace"
         android:text="@string/repeatChoice"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
 </RelativeLayout>

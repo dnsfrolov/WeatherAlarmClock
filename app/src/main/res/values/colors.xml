@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorWhite">#FFFFFF</color>
     <color name="colorDarkerGray">#d4d4d4</color>
 
     <color name="colorTeal_50">#E0F2F1</color>
@@ -13,7 +14,15 @@
     <color name="colorTeal_800">#00695C</color>
     <color name="colorTeal_900">#004D40</color>
 
+    <color name="colorRed_500">#F44336</color>
+    <color name="colorRed_900">#D71C1C</color>
+    <color name="colorRed_A700">#D50000</color>
+
     <color name="colorPink_900">#880E4F</color>
+
+    <color name="colorGrey">#212121</color>
+    <color name="colorBlack">#000000</color>
+
     <color name="colorCustom">#283339</color>
 
 </resources>

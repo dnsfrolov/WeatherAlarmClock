@@ -17,7 +17,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="65dp"
         android:adjustViewBounds="true"
-        app:materialIconColor="@color/colorTeal_200"/>
+        app:materialIconColor="@color/colorRed_500"/>
 
     <net.steamcrafted.materialiconlib.MaterialIconView
         android:id="@+id/wifi_icon"
@@ -27,16 +27,16 @@
         android:layout_marginStart="115dp"
         android:layout_marginTop="65dp"
         android:adjustViewBounds="true"
-        app:materialIconColor="@color/colorTeal_200"/>
+        app:materialIconColor="@color/colorRed_500"/>
 
     <TextClock
         android:id="@+id/tv_boot_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="105dp"
         android:layout_marginTop="250dp"
         android:fontFamily="monospace"
-        android:textColor="@color/colorTeal_200"
+        android:textColor="@color/colorRed_500"
         android:textSize="60dp"/>
 
 
@@ -57,7 +57,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="72dp"
             android:fontFamily="monospace"
-            android:textColor="@color/colorTeal_200"
+            android:textColor="@color/colorWhite"
             android:textSize="20dp"/>
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="monospace"
             android:gravity="end"
-            android:textColor="@color/colorTeal_200"
+            android:textColor="@color/colorWhite"
             android:textSize="20dp"/>
 
         <TextView
@@ -83,7 +83,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="monospace"
             android:gravity="bottom"
-            android:textColor="@color/colorTeal_200"
+            android:textColor="@color/colorWhite"
             android:textSize="30dp"/>
 
     </RelativeLayout>
@@ -107,7 +107,7 @@
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             app:materialIcon="alarm_off"
-            app:materialIconColor="@color/colorTeal_200"/>
+            app:materialIconColor="@color/colorRed_500"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -128,7 +128,7 @@
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             app:materialIcon="sleep"
-            app:materialIconColor="@color/colorTeal_200"/>
+            app:materialIconColor="@color/colorRed_500"/>
     </RelativeLayout>
 
 </RelativeLayout>
