@@ -56,6 +56,8 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
     TextView tvRemind;
     @Bind(R.id.switch_vibration)
     SwitchCompat switchVibration;
+    @Bind(R.id.switch_weather)
+    SwitchCompat switchWeather;
 
     public static TextView tvHours;
     public static TextView tvMin;
@@ -110,12 +112,14 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
         alarmClockLab.setVolume(alarm.volume);
         alarmClockLab.setVibrate(alarm.vibrate);
         alarmClockLab.setRemind(alarm.remind);
+        alarmClockLab.setVibrate(alarm.weather);
 
         tvRingtones.setText(alarmClockLab.ring);
         switchVibration.setChecked(alarmClockLab.vibrate);
         cvRepeat.setOnClickListener(this);
         cvRing.setOnClickListener(this);
         cvRemind.setOnClickListener(this);
+        switchWeather.setChecked(alarmClockLab.weather);
 
         int hour = alarmClockLab.hour;
         int minute = alarmClockLab.minute;
@@ -136,6 +140,13 @@ public class EditAlarmActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 alarmClockLab.setVibrate(isChecked);
+            }
+        });
+
+        switchWeather.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                alarmClockLab.setWeather(isChecked);
             }
         });
     }

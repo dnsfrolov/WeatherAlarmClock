@@ -42,6 +42,7 @@ public class AlarmDBUtils {
         contentValues.put("VOLUME", alarm.volume);
         contentValues.put("VIBRATE", alarm.vibrate);
         contentValues.put("REMIND", alarm.remind);
+        contentValues.put("WEATHER", alarm.weather);
         return contentValues;
     }
 
@@ -84,9 +85,11 @@ public class AlarmDBUtils {
                     .volume(cursor.getInt(cursor.getColumnIndex("VOLUME")))
                     .vibrate(valueOf(cursor.getInt(cursor.getColumnIndex("VIBRATE"))))
                     .remind(cursor.getInt(cursor.getColumnIndex("REMIND")))
+                    .weather(valueOf(cursor.getInt(cursor.getColumnIndex("WEATHER"))))
                     .builder(cursor.getInt(cursor.getColumnIndex("ID")));
             alarmList.add(alarm);
         }
+        cursor.close();
         return alarmList;
     }
 

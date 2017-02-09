@@ -19,6 +19,7 @@
     <string name="timeNull">--:--</string>
     <string name="OK">OK</string>
     <string name="Cancel">CANCEL</string>
+    <string name="failure_network">Failure network connection</string>
 
     <!--alarm activity-->
     <string name="time">00</string>
@@ -52,7 +53,7 @@
 
     <string name="settings_location_city_title">Change city</string>
     <string name="settings_location_city_summary">Currently: %s</string>
-    <string name="pref_city_default" translatable="false">kiev</string>
+    <string name="pref_city_default" translatable="false">Ivano-Frankivsk</string>
     <string name="pref_city_key" translatable="false">settings_edit_city_name</string>
 
     <string name="pref_temp_format_title">Temperature Format</string>
@@ -60,6 +61,7 @@
     <string name="pref_temp_format_key">settings_list_temp_format</string>
     <string name="pref_temp_celsius">Celsius</string>
     <string name="pref_temp_fahrenheit">Fahrenheit</string>
+    <string name="current_weather">Current Weather</string>
     <string-array name="pref_temp_format_value">
         <item>Fahrenheit</item>
         <item>Celsius</item>>

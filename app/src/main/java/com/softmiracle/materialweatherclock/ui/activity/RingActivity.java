@@ -81,7 +81,7 @@ public class RingActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ((RingViewHolder)holder).initView(position);
+            ((RingViewHolder) holder).initView(position);
         }
 
         @Override

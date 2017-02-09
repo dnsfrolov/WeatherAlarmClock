@@ -28,7 +28,8 @@ public class AlarmDBHelper extends SQLiteOpenHelper {
             "RING TEXT, " +
             "VOLUME INTEGER, " +
             "VIBRATE BOOLEAN, " +
-            "REMIND INTEGER " +
+            "REMIND INTEGER, " +
+            "WEATHER BOOLEAN " +
             ")";
 
     public AlarmDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -43,4 +44,6 @@ public class AlarmDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
+
+
 }

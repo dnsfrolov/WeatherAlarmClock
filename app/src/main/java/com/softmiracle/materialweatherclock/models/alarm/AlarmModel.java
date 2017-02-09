@@ -20,6 +20,7 @@ public class AlarmModel implements Serializable {
     public int volume;
     public boolean vibrate;
     public int remind;
+    public boolean weather;
 
 
     public AlarmModel(int id, AlarmClockBuilder builder) {
@@ -40,6 +41,7 @@ public class AlarmModel implements Serializable {
         this.volume = builder.volume;
         this.vibrate = builder.vibrate;
         this.remind = builder.remind;
+        this.weather = builder.weather;
     }
 
     public void setEnable(boolean enable) {
@@ -104,5 +106,9 @@ public class AlarmModel implements Serializable {
 
     public void setRemind(int remind) {
         this.remind = remind;
+    }
+
+    public void setWeather(boolean weather) {
+        this.weather = weather;
     }
 }

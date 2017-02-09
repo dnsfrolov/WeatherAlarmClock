@@ -15,7 +15,9 @@ public class AlarmClockBuilder {
     public int ringPosition;
     public String ring;
     public int volume;
-    public boolean vibrate;    public int remind;
+    public boolean vibrate;
+    public int remind;
+    public boolean weather;
 
     public AlarmClockBuilder() {
     }
@@ -98,6 +100,11 @@ public class AlarmClockBuilder {
 
     public AlarmClockBuilder remind(int remind) {
         this.remind = remind;
+        return this;
+    }
+
+    public AlarmClockBuilder weather(boolean weather) {
+        this.weather = weather;
         return this;
     }
 

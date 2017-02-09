@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvCondition;
     @Bind(R.id.tv_temp)
     TextView tvTemp;
+    @Bind(R.id.tv_weather_title)
+    TextView tvTitle;
 
     private List<AlarmModel> alarmList;
     private AlarmAdapter alarmAdapter;
@@ -77,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        weatherIcon.setVisibility(View.INVISIBLE);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String city = prefs.getString(getString(R.string.pref_city_key), getString(R.string.pref_city_default));
         loadWeather(city);
@@ -134,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherResponseModel> call, Response<WeatherResponseModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
+                    weatherIcon.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(), "Weather updating...", Toast.LENGTH_SHORT).show();
                     populateWeather(response);
                 }
@@ -141,13 +146,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<WeatherResponseModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Failure network connection", Toast.LENGTH_SHORT).show();
+                tvTitle.setText(R.string.failure_network);
+                weatherIcon.setVisibility(View.VISIBLE);
+                weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WIFI_OFF);
+                Toast.makeText(getApplicationContext(), R.string.failure_network, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void populateWeather(Response<WeatherResponseModel> response) {
         Weather weather[] = response.body().getWeathers();
+        tvTitle.setText(R.string.current_weather);
         tvLocation.setText(response.body().getName());
         tvCondition.setText(weather[0].getMain());
 
@@ -167,7 +176,11 @@ public class MainActivity extends AppCompatActivity {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_PARTLYCLOUDY);
         } else if (weather[0].getIcon().equals("03d") || weather[0].getIcon().equals("03n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_CLOUDY);
+        } else if (weather[0].getIcon().equals("04d") || weather[0].getIcon().equals("04n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_CLOUDY);
         } else if (weather[0].getIcon().equals("09d") || weather[0].getIcon().equals("09n")) {
+            weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_RAINY);
+        }else if (weather[0].getIcon().equals("10d") || weather[0].getIcon().equals("10n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_RAINY);
         } else if (weather[0].getIcon().equals("11d") || weather[0].getIcon().equals("11n")) {
             weatherIcon.setIcon(MaterialDrawableBuilder.IconValue.WEATHER_LIGHTNING);
@@ -255,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tvTime;
         TextView tvSun, tvMon, tvTue, tvWed, tvThu, tvFri, tvSat;
         SwitchCompat switchCompat;
+        MaterialIconView ivWeather;
 
         AlarmViewHolder(View realContentView) {
             super(realContentView);
@@ -268,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
             tvFri = (TextView) realContentView.findViewById(R.id.alarmlist_fri);
             tvSat = (TextView) realContentView.findViewById(R.id.alarmlist_sat);
             switchCompat = (SwitchCompat) realContentView.findViewById(R.id.alarmlist_switch);
+            ivWeather = (MaterialIconView) realContentView.findViewById(R.id.alarmlist_weather_icon);
         }
 
         void initData(final int adapterPosition) {
@@ -282,6 +297,7 @@ public class MainActivity extends AppCompatActivity {
             setViewVisible(tvThu, alarm.thursday);
             setViewVisible(tvFri, alarm.friday);
             setViewVisible(tvSat, alarm.saturday);
+            setViewVisible(ivWeather, alarm.weather);
 
             String hour = (alarm.hour >= 10 ? alarm.hour + "" : "0" + alarm.hour);
             String minute = alarm.minute >= 10 ? alarm.minute + "" : "0" + alarm.minute;
@@ -310,7 +326,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
         private void enableTextColor() {
             tvTime.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
             tvSun.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
@@ -320,6 +335,7 @@ public class MainActivity extends AppCompatActivity {
             tvThu.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
             tvFri.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
             tvSat.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
+            ivWeather.setColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_800));
         }
 
         private void disableTextColor() {
@@ -331,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
             tvThu.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_100));
             tvFri.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_100));
             tvSat.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_100));
+            ivWeather.setColor(ContextCompat.getColor(MainActivity.this, R.color.colorTeal_100));
         }
 
         private void setViewVisible(View view, boolean isVisible) {
@@ -356,6 +373,7 @@ public class MainActivity extends AppCompatActivity {
                 .volume(10)
                 .vibrate(true)
                 .remind(3)
+                .weather(true)
                 .builder(0);
 
         AlarmDBUtils.insertAlarmClock(this, alarmM);

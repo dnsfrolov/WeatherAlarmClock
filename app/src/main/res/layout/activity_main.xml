@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="6dp"
-                    android:text="Current Weather"
+                    android:text="@string/current_weather"
                     android:textColor="@color/colorTeal_900"
                     android:textSize="15dp"
                     android:textStyle="normal"/>
@@ -64,10 +64,9 @@
                     android:layout_width="72dp"
                     android:layout_height="72dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:materialIcon="weather_cloudy"
                     app:materialIconColor="@color/colorTeal_700"/>
 
                 <RelativeLayout

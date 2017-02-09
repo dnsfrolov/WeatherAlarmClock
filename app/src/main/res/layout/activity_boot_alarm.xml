@@ -1,51 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/boot1"
-    android:orientation="vertical"
-    tools:context="com.softmiracle.materialweatherclock.ui.activity.BootAlarmActivity">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorCustom"
+                android:orientation="vertical"
+                tools:context="com.softmiracle.materialweatherclock.ui.activity.BootAlarmActivity">
+
+
+    <net.steamcrafted.materialiconlib.MaterialIconView
+        android:id="@+id/weather_icon"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="65dp"
+        android:adjustViewBounds="true"
+        app:materialIconColor="@color/colorTeal_200"/>
+
+    <net.steamcrafted.materialiconlib.MaterialIconView
+        android:id="@+id/wifi_icon"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="65dp"
+        android:adjustViewBounds="true"
+        app:materialIconColor="@color/colorTeal_200"/>
 
     <TextClock
-        android:id="@+id/boot_time"
+        android:id="@+id/tv_boot_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="250dp"
         android:fontFamily="monospace"
-        android:textSize="40dp" />
+        android:textColor="@color/colorTeal_200"
+        android:textSize="60dp"/>
+
 
     <RelativeLayout
-        android:id="@+id/boot_put_off"
-        android:layout_width="190dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/boot_time"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:clickable="true">
+        android:id="@+id/rl_weather"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="end|center_vertical"
+        android:gravity="end"
+        android:orientation="vertical">
 
-        <net.steamcrafted.materialiconlib.MaterialIconView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:materialIcon="sleep"
-            app:materialIconColor="@color/cardview_light_background" />
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="72dp"
+            android:fontFamily="monospace"
+            android:textColor="@color/colorTeal_200"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_location"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="monospace"
+            android:gravity="end"
+            android:textColor="@color/colorTeal_200"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_condition"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:gravity="bottom"
+            android:textColor="@color/colorTeal_200"
+            android:textSize="30dp"/>
+
     </RelativeLayout>
 
 
     <RelativeLayout
-        android:id="@+id/boot_alarm_off"
+        android:id="@+id/rl_boot_alarm_off"
         android:layout_width="190dp"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/boot_time"
+        android:layout_below="@id/rl_weather"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:clickable="true">
 
@@ -53,11 +103,32 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="120dp"
+            android:layout_marginStart="120dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             app:materialIcon="alarm_off"
-            app:materialIconColor="@color/cardview_light_background" />
+            app:materialIconColor="@color/colorTeal_200"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_boot_put_off"
+        android:layout_width="190dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/rl_weather"
+        android:layout_toStartOf="@+id/rl_boot_alarm_off"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true">
+
+        <net.steamcrafted.materialiconlib.MaterialIconView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:materialIcon="sleep"
+            app:materialIconColor="@color/colorTeal_200"/>
     </RelativeLayout>
 
 </RelativeLayout>

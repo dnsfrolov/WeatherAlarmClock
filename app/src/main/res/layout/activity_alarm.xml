@@ -52,12 +52,6 @@
             android:textColor="@color/colorTeal_800"
             android:textSize="80sp" />
 
-        <!--<View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="126dp"
-            android:background="@color/colorTeal_50" />-->
-
     </android.support.v7.widget.CardView>
 
     <ScrollView
