@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monday">Пн</string>
+    <string name="friday">Пт</string>
+    <string name="alarmRemind">Напомнить позже</string>
+    <string name="alarmRemindChoice">Три минуты</string>
+    <string name="alarmRepeat">Повтор</string>
+    <string name="alarmRepeatChoice">Один раз</string>
+    <string name="alarmRingtone">Рингтон</string>
+    <string name="alarmSwitchVibration">Вибрация</string>
+    <string name="alarmSwitchWeather">Включить погоду</string>
+    <string name="current_weather">Текущая Погода</string>
+    <string name="failure_network">Сбой подключения к сети</string>
+    <string name="remindFiveMinutes">Пять минут</string>
+    <string name="remindHalfHour">Пол часа</string>
+    <string name="remindTenMinutes">Десять минут</string>
+    <string name="remindThreeMinutes">Три минуты</string>
+    <string name="remindTwentyMinutes">Двадцять минут</string>
+    <string name="repeatActivityTitle">Время повтора</string>
+    <string name="wednesday">Ср</string>
+    <string name="tuesday">Вт</string>
+    <string name="thursday">Чт</string>
+    <string name="sunday">Нд</string>
+    <string name="settings_weather">Погода</string>
+    <string name="settings_location_city_title">Изменить город</string>
+    <string name="settings_location_city_summary">Текущий: %s</string>
+    <string name="saturday">Сб</string>
+    <string name="ringActivityTitle">Выбор звонка</string>
+    <string name="repeatWeekend">Выходные</string>
+    <string name="repeatWeekDay">Будни</string>
+    <string name="repeatOnce">Один раз</string>
+    <string name="repeatEveryDay">Каждый день</string>
+    <string name="repeatChoiceActivityTitle">Дни повтора</string>
+    <string name="repeatChoice">Ваш выбор</string>
+    <string name="weather_update">Погода обновляется…</string>
+    <string name="remindActivityTitle">Выберите тип напоминания</string>
+    <string name="pref_temp_format_title">Формат температуры</string>
+    <string name="addAlarmActivityTitle">Добавить будильник</string>
+    <string name="deleteActivityTitle">Подтвердить удаление?</string>
+    <string name="editAlarmActivityTitle">Изменить будильник</string>
+    <string name="action_settings">Настройки</string>
+    <string name="Cancel">Отменв</string>
+    <string name="OK">ОК</string>
+    <string name="alarm_remind_content">Три минуты</string>
+    <string name="pref_city_default" translatable="false">Ивано-Франковск</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather Alarm Clock</string>
+    <string name="Cancel">Скасувати</string>
+    <string name="OK">ОК</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="addAlarmActivityTitle">Додати будильник</string>
+    <string name="alarmRemind">Нагадати пізніше</string>
+    <string name="alarmRemindChoice">Три хвилини</string>
+    <string name="alarmRepeat">Повторення</string>
+    <string name="alarmRepeatChoice">Один раз</string>
+    <string name="alarmRingtone">Рингтон</string>
+    <string name="alarmSwitchVibration">Вібрація</string>
+    <string name="alarmSwitchWeather">Включити погоду</string>
+    <string name="alarm_remind_content">Три хвилини</string>
+    <string name="current_weather">Поточна погода</string>
+    <string name="deleteActivityTitle">Підтведити видалення?</string>
+    <string name="editAlarmActivityTitle">Змінити будильник</string>
+    <string name="failure_network">Збій підключення до мережі</string>
+    <string name="friday">Пт</string>
+    <string name="monday">Пн</string>
+    <string name="pref_temp_format_title">Формат температури</string>
+    <string name="remindActivityTitle">Оберіть тип нагадування</string>
+    <string name="remindFiveMinutes">П\'ять хвилин</string>
+    <string name="remindHalfHour">Пів години</string>
+    <string name="remindTenMinutes">Десять хвилин</string>
+    <string name="remindThreeMinutes">Три хвилини</string>
+    <string name="remindTwentyMinutes">Двадцять хвилин</string>
+    <string name="repeatActivityTitle">Час повторення</string>
+    <string name="repeatChoice">Ваш вибір</string>
+    <string name="repeatChoiceActivityTitle">Дні повторення</string>
+    <string name="repeatEveryDay">Кожний день</string>
+    <string name="repeatOnce">Один раз</string>
+    <string name="repeatWeekDay">Будні</string>
+    <string name="repeatWeekend">Вихідні</string>
+    <string name="ringActivityTitle">Вибір рингтону</string>
+    <string name="pref_city_default" translatable="false">Івано-Франківськ</string>
+    <string name="saturday">Сб</string>
+    <string name="settings_location_city_summary">Поточне: %s</string>
+    <string name="settings_location_city_title">Змінити місто</string>
+    <string name="settings_weather">Погода</string>
+    <string name="sunday">Нд</string>
+    <string name="thursday">Чт</string>
+    <string name="tuesday">Вт</string>
+    <string name="weather_update">Погода оновлюється…</string>
+    <string name="wednesday">Ср</string>
+</resources>

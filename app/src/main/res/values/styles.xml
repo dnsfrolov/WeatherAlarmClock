@@ -29,9 +29,6 @@
     </style>
 
     <style name="TimePickerDialog" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="android:background">@color/colorCustom</item>
-        <item name="android:colorAccent">@color/colorCustom</item>
-
     </style>
 
 </resources>

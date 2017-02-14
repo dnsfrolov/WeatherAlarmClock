@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.softmiracle.materialweatherclock">
+          package="com.softmiracle.weatheralarmclock">
 
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -26,71 +26,71 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.AddAlarmActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.AddAlarmActivity"
             android:launchMode="singleTask"
-            android:parentActivityName=".ui.activity.MainActivity"
+            android:parentActivityName="com.softmiracle.weatheralarmclock.ui.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".ui.activity.BootAlarmActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.BootAlarmActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name=".ui.activity.EditAlarmActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.EditAlarmActivity"
             android:launchMode="singleTask"
-            android:parentActivityName=".ui.activity.MainActivity"
+            android:parentActivityName="com.softmiracle.weatheralarmclock.ui.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".ui.activity.RingActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.RingActivity"
             android:label="@string/ringActivityTitle"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AlertDialogCustom"/>
         <activity
-            android:name=".ui.activity.RemindActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.RemindActivity"
             android:label="@string/remindActivityTitle"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AlertDialogCustom"/>
         <activity
-            android:name=".ui.activity.RepeatActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.RepeatActivity"
             android:label="@string/repeatActivityTitle"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AlertDialogCustom"/>
         <activity
-            android:name=".ui.activity.RepeatChoiceActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.RepeatChoiceActivity"
             android:label="@string/repeatChoiceActivityTitle"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AlertDialogCustom"/>
         <activity
-            android:name=".ui.activity.DeleteActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.DeleteActivity"
             android:label="@string/deleteActivityTitle"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AlertDialogCustom"/>
         <activity
-            android:name=".ui.activity.SettingsActivity"
+            android:name="com.softmiracle.weatheralarmclock.ui.activity.SettingsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AlertDialogSettings"/>
 
         <receiver
-            android:name=".ui.receiver.AlarmClockReceiver"
+            android:name="com.softmiracle.weatheralarmclock.ui.receiver.AlarmClockReceiver"
             android:enabled="true"
             android:exported="true">
         </receiver>
 
         <service
-            android:name=".service.AlarmClockService"
+            android:name="com.softmiracle.weatheralarmclock.service.AlarmClockService"
             android:enabled="true"
             android:exported="true"/>
 
         <receiver
-            android:name=".ui.receiver.BootReceiver"
+            android:name="com.softmiracle.weatheralarmclock.ui.receiver.BootReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

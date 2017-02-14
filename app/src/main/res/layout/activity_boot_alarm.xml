@@ -6,129 +6,128 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorCustom"
                 android:orientation="vertical"
-                tools:context="com.softmiracle.materialweatherclock.ui.activity.BootAlarmActivity">
+                tools:context="com.softmiracle.weatheralarmclock.ui.activity.BootAlarmActivity">
 
-
-    <net.steamcrafted.materialiconlib.MaterialIconView
-        android:id="@+id/weather_icon"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="65dp"
-        android:adjustViewBounds="true"
-        app:materialIconColor="@color/colorRed_500"/>
-
-    <net.steamcrafted.materialiconlib.MaterialIconView
-        android:id="@+id/wifi_icon"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="65dp"
-        android:adjustViewBounds="true"
-        app:materialIconColor="@color/colorRed_500"/>
-
-    <TextClock
-        android:id="@+id/tv_boot_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="250dp"
-        android:fontFamily="monospace"
-        android:textColor="@color/colorRed_500"
-        android:textSize="60dp"/>
-
-
-    <RelativeLayout
-        android:id="@+id/rl_weather"
+    <LinearLayout
+        android:id="@+id/ll_weather"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_gravity="end|center_vertical"
-        android:gravity="end"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="72dp"
-            android:fontFamily="monospace"
-            android:textColor="@color/colorWhite"
-            android:textSize="20dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_condition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/tv_location"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="monospace"
-            android:gravity="end"
-            android:textColor="@color/colorWhite"
-            android:textSize="20dp"/>
+            <net.steamcrafted.materialiconlib.MaterialIconView
+                android:id="@+id/weather_icon"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="16dp"
+                android:adjustViewBounds="true"
+                app:materialIconColor="@color/colorRed_500"/>
 
-        <TextView
-            android:id="@+id/tv_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/tv_condition"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="monospace"
-            android:gravity="bottom"
-            android:textColor="@color/colorWhite"
-            android:textSize="30dp"/>
+            <net.steamcrafted.materialiconlib.MaterialIconView
+                android:id="@+id/wifi_icon"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                app:materialIconColor="@color/colorRed_500"/>
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="48dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="78dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="108dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/colorWhite"
+                android:textSize="30dp"/>
+
+            <TextClock
+                android:layout_marginTop="32dp"
+                android:layout_below="@id/weather_icon"
+                android:id="@+id/tv_boot_time"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/colorRed_500"
+                android:textSize="60dp"/>
+        </RelativeLayout>
+    </LinearLayout>
 
 
-    <RelativeLayout
-        android:id="@+id/rl_boot_alarm_off"
-        android:layout_width="190dp"
+    <LinearLayout
+        android:id="@+id/ll_botton"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/rl_weather"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:clickable="true">
+        android:layout_below="@+id/ll_weather"
+        android:baselineAligned="false"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
-        <net.steamcrafted.materialiconlib.MaterialIconView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="120dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:materialIcon="alarm_off"
-            app:materialIconColor="@color/colorRed_500"/>
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_boot_put_off"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true">
 
-    <RelativeLayout
-        android:id="@+id/rl_boot_put_off"
-        android:layout_width="190dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/rl_weather"
-        android:layout_toStartOf="@+id/rl_boot_alarm_off"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:clickable="true">
+            <net.steamcrafted.materialiconlib.MaterialIconView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:materialIcon="sleep"
+                app:materialIconColor="@color/colorRed_500"/>
 
-        <net.steamcrafted.materialiconlib.MaterialIconView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:materialIcon="sleep"
-            app:materialIconColor="@color/colorRed_500"/>
-    </RelativeLayout>
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/rl_boot_alarm_off"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true">
+
+            <net.steamcrafted.materialiconlib.MaterialIconView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:materialIcon="alarm_off"
+                app:materialIconColor="@color/colorRed_500"/>
+
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

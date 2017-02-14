@@ -6,7 +6,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorCustom"
-                tools:context="com.softmiracle.materialweatherclock.ui.activity.MainActivity">
+                tools:context="com.softmiracle.weatheralarmclock.ui.activity.MainActivity">
 
     <include
         android:id="@+id/include_toolbar"
@@ -120,13 +120,20 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/weather_card"/>
 
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/clayout">
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floating_action_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        app:fabSize="normal"
+        app:borderWidth="0dp"
         android:src="@drawable/alarm_plus"/>
+    </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>
