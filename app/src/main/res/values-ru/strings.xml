@@ -39,8 +39,8 @@
     <string name="deleteActivityTitle">Подтвердить удаление?</string>
     <string name="editAlarmActivityTitle">Изменить будильник</string>
     <string name="action_settings">Настройки</string>
-    <string name="Cancel">Отменв</string>
+    <string name="Cancel">Отмена</string>
     <string name="OK">ОК</string>
     <string name="alarm_remind_content">Три минуты</string>
-    <string name="pref_city_default" translatable="false">Ивано-Франковск</string>
+    <string name="pref_city_default">Ивано-Франковск</string>
 </resources>

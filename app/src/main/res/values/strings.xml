@@ -68,11 +68,11 @@
     <string name="weather_update">Weather is updating…</string>
     <string name="cel" translatable="false">" °C"</string>
     <string name="fahr" translatable="false">" °F"</string>
-    <string-array name="pref_temp_format_value">
+    <string-array name="pref_temp_format_value" translatable="false">
         <item>Fahrenheit</item>
         <item>Celsius</item>>
     </string-array>
-    <string-array name="pref_temp_format">
+    <string-array name="pref_temp_format" translatable="false">
         <item>Fahrenheit</item>
         <item>Celsius</item>
     </string-array>

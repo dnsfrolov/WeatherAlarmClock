@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Weather Alarm Clock</string>
+    <string name="app_name" translatable="false">Weather Alarm Clock</string>
     <string name="Cancel">Скасувати</string>
     <string name="OK">ОК</string>
     <string name="action_settings">Налаштування</string>
@@ -34,7 +34,7 @@
     <string name="repeatWeekDay">Будні</string>
     <string name="repeatWeekend">Вихідні</string>
     <string name="ringActivityTitle">Вибір рингтону</string>
-    <string name="pref_city_default" translatable="false">Івано-Франківськ</string>
+    <string name="pref_city_default">Івано-Франківськ</string>
     <string name="saturday">Сб</string>
     <string name="settings_location_city_summary">Поточне: %s</string>
     <string name="settings_location_city_title">Змінити місто</string>

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.media.RingtoneManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.CoordinatorLayout;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements AlarmAdapter.Alar
 
     private List<AlarmModel> alarmList;
     private AlarmAdapter alarmAdapter;
+    private AlarmTask mTask;
 
     public static final String WEEK_DAY = "Week day";
     private static final String BOOT = "boot";
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements AlarmAdapter.Alar
     private Thread mTread = new Thread(new Runnable() {
         @Override
         public void run() {
-            SharedPreferences sharedPreferences = getSharedPreferences(BOOT, MODE_PRIVATE);
+            /*SharedPreferences sharedPreferences = getSharedPreferences(BOOT, MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             boolean flag = sharedPreferences.getBoolean(FLAG, false);
 
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements AlarmAdapter.Alar
                 editor.apply();
             }
 
-            alarmList = AlarmDBUtils.queryAlarmClock(MainActivity.this);
+            alarmList = AlarmDBUtils.queryAlarmClock(MainActivity.this);*/
 
             runOnUiThread(new Runnable() {
                 @Override
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements AlarmAdapter.Alar
             });
         }
     });
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -285,5 +288,30 @@ public class MainActivity extends AppCompatActivity implements AlarmAdapter.Alar
     @Override
     public void onLongClick(int id) {
         startActivity(new Intent(DeleteActivity.newIntent(MainActivity.this, id)));
+    }
+
+    public class AlarmTask extends AsyncTask<Void,Void,AlarmModel> {
+
+        @Override
+        protected AlarmModel doInBackground(Void... params) {
+            SharedPreferences sharedPreferences = getSharedPreferences(BOOT, MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            boolean flag = sharedPreferences.getBoolean(FLAG, false);
+
+            if (!flag) {
+                initDB();
+                editor.putBoolean(FLAG, true);
+                editor.apply();
+            }
+
+            alarmList = AlarmDBUtils.queryAlarmClock(MainActivity.this);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(AlarmModel alarmModel) {
+            super.onPostExecute(alarmModel);
+            setData(alarmList);
+        }
     }
 }
