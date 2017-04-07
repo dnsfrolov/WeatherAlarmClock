@@ -1,6 +1,6 @@
 # WeatherAlarmClock
 This is a simple alarm clock with weather inside.
-Alarm clock is ringing and is showing weather forecast.
+Alarm clock ring and show weather forecast.
 Used API from OpenWeather.
 # ScreenShots
 <img src="https://github.com/dnsfrolov/Material-Weather-Clock/blob/master/screenshots/Screenshot_2017-02-09-22-48-41.png" height="320" />
